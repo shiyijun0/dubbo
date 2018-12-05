@@ -12,12 +12,13 @@
 
     <dubbo:application name="consumer" owner="programmer" organization="dubbox"/>
     
-    <dubbo:registry address="zookeeper://192.168.1.121:2181?backup=192.168.1.122:2181,192.168.1.123:2181"/>
+   <!--  <dubbo:registry address="zookeeper://192.168.1.121:2181?backup=192.168.1.122:2181,192.168.1.123:2181"/> -->
+    <dubbo:registry address="zookeeper://39.105.169.182:2182"/>
     <!-- kryo实现序列化  -->
-    <dubbo:protocol name="dubbo" serialization="kryo" optimizer="bhz.utils.SerializationOptimizerImpl" />
+    <!-- <dubbo:protocol name="dubbo" serialization="kryo" optimizer="bhz.utils.SerializationOptimizerImpl" /> -->
     
     <!-- 生成远程服务代理，可以像使用本地bean -->
-	<dubbo:reference interface="bhz.service.UserService" id="userService" check="false" />
+	<!-- <dubbo:reference interface="bhz.service.UserService" id="userService" check="false" /> -->
     <!-- 生成远程服务代理，可以像使用本地bean -->
 	<dubbo:reference interface="bhz.service.SimpleService" id="simpleService" />
 	

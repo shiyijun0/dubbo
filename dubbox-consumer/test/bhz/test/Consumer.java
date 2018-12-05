@@ -22,10 +22,10 @@ public class Consumer {
 		System.out.println(simple.getMap().get("zhang1"));
 		
 
-		UserService us = (UserService) context.getBean("userService");
+		/*UserService us = (UserService) context.getBean("userService");
 		
 		System.out.println(us.getUser().getName());
-		System.out.println(us.getUser().getId());
+		System.out.println(us.getUser().getId());*/
 		
 		
 		

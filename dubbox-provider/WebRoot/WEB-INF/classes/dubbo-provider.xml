@@ -14,34 +14,35 @@
     <dubbo:application name="provider" owner="programmer" organization="dubbox"/>
 
 	<!-- zookeeper注册中心 -->
-    <dubbo:registry address="zookeeper://192.168.1.121:2181?backup=192.168.1.122:2181,192.168.1.123:2181"/>
+   <!--  <dubbo:registry address="zookeeper://192.168.1.121:2181?backup=192.168.1.122:2181,192.168.1.123:2181"/> -->
+  <dubbo:registry address="zookeeper://39.105.169.182:2182"/>
 
     <dubbo:annotation package="bhz.service" />
     
-    <!-- kryo实现序列化  serialization="kryo" optimizer="bhz.utils.SerializationOptimizerImpl"-->
+   <!--  kryo实现序列化  serialization="kryo" optimizer="bhz.utils.SerializationOptimizerImpl" -->
     <dubbo:protocol name="dubbo"  serialization="kryo" optimizer="bhz.utils.SerializationOptimizerImpl" />
 
     <!-- rest -->
-    <dubbo:protocol name="rest" server="tomcat" port="8888" contextpath="provider" accepts="500" />
-
-	<!-- 
-    <dubbo:service interface="bhz.service.SimpleService" ref="simpleService" protocol="dubbo" />
-    -->
+   <!--  <dubbo:protocol name="rest" server="tomcat" port="8888" contextpath="provider" accepts="500" /> -->
     
+    <dubbo:protocol name="dubbo" port="8888"/>
+
+
     
     <!-- 声明需要暴露的服务接口 -->
     <!-- 同时提供本地dubbo方法调用和rest方法调用 --> 
-    <!--
-	<dubbo:service interface="bhz.service.UserService" ref="userService" protocol="rest,dubbo" />
-	--> 
-	
+    
+	<!-- <dubbo:service interface="bhz.service.UserService" ref="userService" protocol="rest,dubbo" /> -->
+	  <dubbo:service interface="bhz.service.SimpleService" ref="simpleService" protocol="dubbo" />
+	 
+	<!-- <dubbo:service interface="bhz.service.UserService" ref="userService" protocol="dubbo"/> -->
 	
 	
 	<!-- spring 本地bean配置 一样实现服务 -->
- 	<!--  
-	<bean id="userService" class="bhz.service.impl.UserServiceImpl" />
+ 	 
+	<!-- <bean id="userService" class="bhz.service.impl.UserServiceImpl" /> -->
 	<bean id="simpleService" class="bhz.service.impl.SimpleServiceImpl" />
-	-->
+	
 	
 	
 	

@@ -13,7 +13,7 @@ public class HttpTest1 {
     	User user = new User();
     	user.setId("1001");
     	user.setName("李四");
-		String responseStr1 = HttpProxy.postJson("http://localhost:8888/provider/userService/postUser",
+		String responseStr1 = HttpProxy.postJson("http://39.105.169.182:8888/provider/userService/postUser",
 				FastJsonConvert.convertObjectToJSON(user));
 		System.out.println(responseStr1);
 		
